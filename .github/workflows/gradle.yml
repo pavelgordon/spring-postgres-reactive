@@ -13,5 +13,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Set up Postgres
+      run: docker-compose up -d
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Cleanup
+      run: docker-compose down
