@@ -1,8 +1,8 @@
 ## Spring Postgres Notifications 
-How to subscribe to notifications from database in Spring app on data change via [reactive-pg-client](https://github.com/eclipse-vertx/vertx-sql-client/tree/3.8/vertx-pg-client).
+How to subscribe to notifications from Postgres in Spring app on data change via [reactive-pg-client](https://github.com/eclipse-vertx/vertx-sql-client/tree/3.8/vertx-pg-client).
 
 ## What it does
-1. Runs docker container with postgres db  
+1. Runs docker container with postgres db. 
 2. Creates and seeds table `users`
 3. Creates trigger on table `users` on CREATE/UPDATE operations
 4. Subscribes to notifications on `user_update` topic from Postgres
@@ -21,8 +21,9 @@ prints it to stdout
 
 ## Installation
 1. Install Docker
-1. Install Java 8+
-2. Clone project to local machine.
+2. Install Java 8+
+3. Install Gradle
+4. Clone project to local machine.
 
 ## How to use?
 1. Go to project root directory.  
@@ -36,12 +37,13 @@ Or [import and run project in IntelliJ IDEA](https://www.jetbrains.com/help/idea
     - db name: `postgres`  
     - username: `postgres` 
     - password: `test` 
+    
+    In [resources/data.sql](https://github.com/pavelgordon/spring-postgres-reactive-pg-client/blob/master/src/main/resources/data.sql) you can find already created users.
 
-5. Make some changes in `users`, e.g.:  
+5. Make some changes in `users`, e.g. execute this SQL query:  
 `update users set role='test1' where first_name = 'Pavel'`
 
-6. In terminal you will see notification like: 
-`user has been updated {"operation" : "UPDATE", "user" : {"id":1,"first_name":"Pavel","last_name":"Gordon","role":"test"}}`
-
+6. In terminal you will see message like:  
+`user has been updated {"operation" : "UPDATE", "user" : {"id":1,"first_name":"Pavel","last_name":"Gordon","role":"test1"}}`
 
 7. Run `docker-compose down` to tear down container with database.
