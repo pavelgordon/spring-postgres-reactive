@@ -3,7 +3,7 @@ services:
   #  Create a service named db.
   db:
     #   Use the Docker Image postgres. This will pull the newest release.
-    image: "postgres"
+    image: "postgres:11"
     #   Give the container the name my_postgres. You can changes to something else.
     container_name: "my_postgres"
     #   Setup the username, password, and database name. You can changes these values.
@@ -15,6 +15,6 @@ services:
     ports:
       - "54320:5432"
     #   Set a volume some that database is not lost after shutting down the container.
-    #   I used the name postgres-data but you can changed it to something else.
+    #   I used the name postgres-datavolume but you can changed it to something else.
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-datavolume:/var/lib/postgresql/data
