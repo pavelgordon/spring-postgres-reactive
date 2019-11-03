@@ -1,5 +1,5 @@
 ## Spring Postgres Notifications 
-How to subscribe to notifications from Postgres in Spring app on data change via [reactive-pg-client](https://github.com/eclipse-vertx/vertx-sql-client/tree/3.8/vertx-pg-client).
+How to subscribe to notifications in Spring app on database change via [Reactive PostgreSQL client](https://github.com/eclipse-vertx/vertx-sql-client/tree/3.8/vertx-pg-client).
 
 ## What it does
 1. Runs docker container with postgres db. 
